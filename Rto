@@ -1,0 +1,18 @@
+rtolocal Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
+local function setupCharacter(character)
+    local humanoid = character:WaitForChild("Humanoid")
+
+    humanoid.WalkSpeed = 100
+    humanoid.UseJumpPower = true
+    humanoid.JumpPower = 150
+end
+
+if player.Character then
+    setupCharacter(player.Character)
+end
+
+player.CharacterAdded:Connect(setupCharacter)
+
+
